@@ -24,7 +24,7 @@ output "jenkins-server-name" {
   sensitive = false
 }
 
-output "sonarquber-server-name" {
+output "sonarqube-server-name" {
   value     = google_compute_instance_from_template.sonarqube.name
   sensitive = false
 }

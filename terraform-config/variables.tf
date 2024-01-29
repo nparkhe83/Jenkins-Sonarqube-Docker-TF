@@ -37,6 +37,10 @@ variable "instance_template_name" {
   default = "jsd-instance-template"
   type    = string
 }
+variable "sonar_template_name" {
+  default = "jsd-sonar-template"
+  type    = string
+}
 
 variable "jenkins_instance_name" {
   default = "ci-server"

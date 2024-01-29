@@ -19,6 +19,7 @@ You can update default values by changing default values listed in ./scripts/def
 > export PATH=$PATH:${pwd}
 > tf-create.sh
 > source ./working/created-resource-names.sh
+> cd ../terraform-config
 ```
 
 On completion of above instructions, 3 servers hosting Jenkins, Sonarqube and Docker will be created on GCP Compute Engine.
