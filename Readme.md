@@ -12,6 +12,10 @@
 
 Instructions folder contain instructions to Setup, Deploy and Cleanup Resources used in this project.
 
+Common CLI commands are listed in the Makefile at the root of the script. You can create project from the CLI.
+
+- When you create the project from Makefile, it updates default-values.sh
+
 All 3 activities are executed using bash scripts that call Terraform CLI with required inputs.
 
 ---
