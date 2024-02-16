@@ -10,19 +10,23 @@ Please refer to ./setup-instructions.md for instructions on
 
 ---
 
-Switch to ./scripts folder on your terminal and follow instructions below.
-You can update default values by changing default values listed in ./scripts/default-values.sh
+> Run below commands
+
+_Update default values by changing default values listed in ./scripts/default-values.sh_
 
 ```
-> cd scripts
-> chmod +x tf-create.sh
-> export PATH=$PATH:${pwd}
-> tf-create.sh
-> source ./working/created-resource-names.sh
-> cd ../terraform-config
+> make enable_scripts
+> make create_resources
 ```
 
-On completion of above instructions, 3 servers hosting Jenkins, Sonarqube and Docker will be created on GCP Compute Engine.
+3 servers hosting Jenkins, Sonarqube and Docker will be created on GCP Compute Engine.
+
+> To proceed with setting up the servers, please continue with the following.
+
+```
+> source scripts/working/created-resource-names.sh
+> cd terraform-config
+```
 
 ---
 
@@ -47,7 +51,7 @@ ci-server:~$ exit
 ##### Open Jenkins URL in Browser
 
 ```
-> terraform output -raw jenkins-url
+> make get_jenkins_url
 ```
 
 </details>
@@ -93,7 +97,7 @@ https://github.com/nparkhe83/jenkins-sonarqube-docker.git
 > Copy Jenkins Server URL into Payload URL
 
 ```
-terraform output -raw jenkins-webhook-url
+> make get_webhook_url
 ```
 
 > In "Which events would you like to trigger this webhook?" > "Let me select individual events." > Select "Pushes" and "Pull Requests"
@@ -124,7 +128,7 @@ scanner-server:~$ ./sonar.sh console
 ##### Open SonarQube Server in Browser
 
 ```
-> terraform output -raw sonarqube-url
+> make get_sonarqube_url
 ```
 
 > user: admin
@@ -384,10 +388,10 @@ docker run -d -p 8085:80 --name=Onix-Website mywebsite
 <details >
 <summary>Check Website </summary>
 
-##### Go to Docker IP to check website
+##### Browse to following IP address to see deployed website
 
 ```
-> terraform output docker-url
+> make get_website_url
 ```
 
 </details>

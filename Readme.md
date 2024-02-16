@@ -8,15 +8,48 @@
 
 ---
 
-#### Setup, Deployment & Cleanup
+## How to use this repo
 
-Instructions folder contain instructions to Setup, Deploy and Cleanup Resources used in this project.
+### Instructions
 
-Common CLI commands are listed in the Makefile at the root of the script. You can create project from the CLI.
+`./Instructions` folder contains instructions to Setup, Deploy and Cleanup Resources used in this project.
 
-- When you create the project from Makefile, it updates default-values.sh
+`Makefile` contains many recipes that simplify executing steps listed in the instructions. Run the make commands in terminal at the root directory of the repo as the Makefile resides in the root.
 
-All 3 activities are executed using bash scripts that call Terraform CLI with required inputs.
+#### Makefile
+
+<details>
+
+<summary> List of Makefile recipes </summary>
+
+Type `make` in the terminal to list recipes that you can use at different steps of implementing this repo.
+
+Using the Makefile recipes you can
+
+- Authorize login to GCP using gcloud
+- Authorize Terraform to GCP
+- Create GCP Project
+- Run Script that deploys GCP resources as per Terraform Config
+- Run script to update configuration
+- Run script to destroy deployed resources.
+- List resources created by Terraform
+- List default names used by scripts.
+- Enable Git Hook that ties Trello stories to each commit.
+- Enable scripts with proper permissions.
+
+</details>
+
+---
+
+### Expected Output
+
+On successful completion of CI/CD pipeline,
+
+- 3 GCP VMs are created
+  - VM `ci-server`: Hosts Jenkins CI server that runs the CI/CD platform
+  - VM `scanner-server`: Hosts Sonarqube that performs code quality analysis
+  - VM `container-server`: Runs Docker image that runs an nginx webserver
+- Website is deployed at IP address of `container-server`
 
 ---
 
@@ -38,7 +71,7 @@ All 3 activities are executed using bash scripts that call Terraform CLI with re
 
 #### Declarative Nature Streamlines Execution:
 
- - Eliminated the need for meticulous debugging and command ordering, which were previously required with manual gcloud interactions. Terraform's declarative approach ensures accurate execution by intelligently determining the optimal sequence of actions, freeing up valuable time and reducing the risk of errors.
+- Eliminated the need for meticulous debugging and command ordering, which were previously required with manual gcloud interactions. Terraform's declarative approach ensures accurate execution by intelligently determining the optimal sequence of actions, freeing up valuable time and reducing the risk of errors.
 
 <br>
 
