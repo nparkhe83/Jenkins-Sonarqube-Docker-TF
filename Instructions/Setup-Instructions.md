@@ -14,13 +14,13 @@ https://cloud.google.com/sdk/docs/install#mac
 > Login to Google Cloud using CLI
 
 ```
-> gcloud auth login
+> make login_gcp
 ```
 
 > Enable access for Terraform to GCP
 
 ```
-> gcloud auth application-default login
+> make authorize_terraform
 ```
 
 </details>
@@ -50,9 +50,7 @@ _In case you need to perform more fine tuning of naming the resources created, y
 > Ensure Story-Id in Commit Message
 
 ```
-cd scripts
-$ chmod +x enforce-story-id.sh
-$ sh enforce-story-id.sh
+make enforce_story-id
 ```
 
 </details>
@@ -64,19 +62,19 @@ $ sh enforce-story-id.sh
 > Simple Terraform initialisation
 
 ```
-> terraform init
+> make initialize_terraform
 ```
 
 > Terraform initialisation after change in Backend
 
 ```
-> terraform init --migrate-state
+> make migrate_terraform_state
 ```
 
 > Terraform initialisation specifying new backend
 
 ```
-> terraform init --backend-config=backend.hcl --migrate-state
+> make change_terraform_backend
 ```
 
 </details>
@@ -91,6 +89,7 @@ $ sh enforce-story-id.sh
 > Terraform linting, formatting
 
 ```
+> cd terraform-config
 > terraform validate
 > terraform fmt
 ```
@@ -104,7 +103,7 @@ $ sh enforce-story-id.sh
 > Gcloud Config Setup > Reinitialise with a completely new configuration.
 
 ```
-gcloud init
+> make init_gcloud
 ```
 
 > Destroy resources created with Terraform

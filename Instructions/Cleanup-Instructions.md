@@ -4,15 +4,15 @@
 
 <details>
 
-<summary>Clean up resources completely</summary>
+<summary>Clean up all resources</summary>
+
+> This will remove every resource created by the scripts and by Terraform. Project and storage bucket used to store terraform state will be removed.
 
 ```
-> cd scripts
-> export PATH=$PATH:${pwd}
-> tf-destroy.sh
+> make clear_resources
 ```
 
-You can choose whether to delete project and bucket. If you delete project and bucket, you will have to change defaults or specify their values when running tf-create.sh
+_If you delete project and bucket, defaults need to be updated. Edit `scripts/default-values.sh` or specify their values when running `scripts/tf-create.sh`_
 
 </details>
 
@@ -20,13 +20,13 @@ You can choose whether to delete project and bucket. If you delete project and b
 
 <details>
 
-<summary>Clean up resources created by Terraform</summary>
+<summary>Clean up resources created by Terraform only</summary>
 
 ```
 > cd terraform-config
 > terraform destroy --auto-approve
 ```
 
-This will not remove project and storage bucket created by the script. Thus there is no update required in defaults.
+This will not remove project and storage bucket created by the script. Does not force creation of new GCP project and storage bucket used to store terraform state
 
 </details>
